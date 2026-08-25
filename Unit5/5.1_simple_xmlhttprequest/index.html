@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Simple XMLHttpRequest</h2>
+<button onclick="loadData()">Get Data</button>
+<p id="output"></p>
+
+<script>
+function loadData() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "data.txt", true);
+    xhr.onload = function() {
+        if (xhr.status == 200) {
+            document.getElementById("output").innerHTML = xhr.responseText;
+        }
+    };
+    xhr.send();
+}
+</script>
+</body>
+</html>
