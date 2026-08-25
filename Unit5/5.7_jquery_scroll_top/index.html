@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scroll to Top</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body { height: 2000px; }
+        #topButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+        }
+    </style>
+</head>
+<body>
+
+<h1 id="top">Long Web Page</h1>
+<p>Scroll down and click the button to smoothly return to the top.</p>
+
+<div style="margin-top:1500px;">
+    <h2>Bottom of Page</h2>
+</div>
+
+<button id="topButton">Go to Top</button>
+
+<script>
+$("#topButton").click(function() {
+    $("html, body").animate({scrollTop: 0}, 800);
+});
+</script>
+
+</body>
+</html>
