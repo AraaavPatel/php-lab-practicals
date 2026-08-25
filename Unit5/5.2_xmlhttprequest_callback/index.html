@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>XMLHttpRequest with Callback</h2>
+<button onclick="loadData()">Get Data</button>
+<p id="output"></p>
+
+<script>
+function showData(xhr) {
+    if (xhr.status == 200) {
+        document.getElementById("output").innerHTML = xhr.responseText;
+    }
+}
+
+function loadData() {
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            showData(xhr);
+        }
+    };
+
+    xhr.open("GET", "data.txt", true);
+    xhr.send();
+}
+</script>
+</body>
+</html>
