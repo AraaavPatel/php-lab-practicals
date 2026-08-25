@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Fetch Database Information Using AJAX</h2>
+<button onclick="loadUsers()">Load Users</button>
+<div id="users"></div>
+
+<script>
+function loadUsers() {
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "users.php", true);
+
+    xhr.onload = function() {
+        if (xhr.status == 200) {
+            document.getElementById("users").innerHTML = xhr.responseText;
+        }
+    };
+
+    xhr.send();
+}
+</script>
+</body>
+</html>
