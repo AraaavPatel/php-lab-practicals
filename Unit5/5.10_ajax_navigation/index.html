@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Navigation Menu</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        nav a {
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        #content {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<h2>AJAX Navigation Menu</h2>
+
+<nav>
+    <a data-page="home">Home</a>
+    <a data-page="products">Products</a>
+    <a data-page="about">About</a>
+    <a data-page="contact">Contact</a>
+</nav>
+
+<div id="content">
+    Click a menu item to load content.
+</div>
+
+<script>
+$("nav a").click(function() {
+    var page = $(this).data("page");
+
+    $.ajax({
+        url: "content.php",
+        type: "GET",
+        data: {page: page},
+        success: function(response) {
+            $("#content").html(response);
+        },
+        error: function() {
+            $("#content").html("Unable to load content.");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
